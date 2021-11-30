@@ -1,6 +1,10 @@
 // EventListenerit
-document.getElementById("hakuBtn").addEventListener("click", haeKaikki);
-window.addEventListener("load", haeKuva);
+$("#hakuBtn").click(function() {
+    haeKaikki();
+});
+$(document).ready(function() {
+    haeKuva();
+})
 
 //FUNKTIOT
 
@@ -9,11 +13,29 @@ function haeKaikki() {
     haeKuva();
     haeFakta();
     piilota();
+    $("#logo").animate(
+        {
+            width: "100px",
+        }, 200
+    ).animate(
+        {
+            width: "40px",
+        }, 100
+    ).animate(
+        {
+                width: "90px",
+        }, 100
+    ).animate(
+            {
+                width: "70px",
+            }
+    );
+
 }
 
 //Piilotetaan aloitusteksti
 function piilota() {
-    document.getElementById("areYouHere").style.display = "none";
+    $("#areYouHere").slideUp(500);
 }
 
 // Haetaan kuvan url API:sta
@@ -48,7 +70,7 @@ function parseKuva(kuva) {
 //Näytetään kuva sivulla image-id:llä varustetussa elementissä
 function naytaKuva(kuva) {
     //console.log(kuva);
-    document.getElementById("image").src = kuva;
+    $("#image").attr("src", kuva);
 }
 
 //haetaan fakta
@@ -88,18 +110,11 @@ function parseFakta(fakta) {
 
 //Näytetään fakta faktapaikka-id:llä varustetussa elementissä
 function naytaFakta(fakta) {
-    //console.log("Tämä fakta näytetään: " + fakta);
-    //haetaan oikea paikka
-    var paikka = document.getElementById("faktapaikka");
     //jos childnodeja on, poistetaan ne (=edelliset haut)
-    paikka.removeChild(paikka.childNodes[0]);
+    $("#faktapaikka").empty();
+    //Lisätään fakta-paragrafi oikealle paikalle
+    $("#faktapaikka").append("<p>" + fakta + "<p>");
 
-    //tehdään uusi paragrafi-node
-    var p = document.createElement("p");
-    //tehdään text node haetusta faktasta
-    var fakta = document.createTextNode(fakta);
-    // lisätään text node paragrafi-nodeen
-    p.appendChild(fakta);
-    //Näytetään fakta ("p") faktapaikka-id:llä varustetussa elementissä
-    document.getElementById("faktapaikka").appendChild(p);
+
+
 }

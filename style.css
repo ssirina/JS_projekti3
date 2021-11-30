@@ -92,9 +92,10 @@ button {
       max-width: 100%;
   }
 
-  #logo {
-    width: 70px;
-    text-align: center;
+  #logodiv {
+    height: 70px;
   }
 
-  
+  #logo {
+    width: 70px;
+  }

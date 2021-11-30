@@ -1,5 +1,6 @@
 # JS_projekti2
-JS course, API-project
-Cat Fact Generator that uses two separate API:s to fetch random cat facts and cat images
+JS course, jQuery-project
+Cat Fact Generator that uses two separate API:s to fetch random cat facts and cat images.
+Added effects using jQuery.
 
-Check out on Netlify: https://elastic-mestorf-756ce1.netlify.app/
+Check out on Netlify: 
