@@ -1,4 +1,5 @@
 // EventListenerit
+
 $("#hakuBtn").click(function() {
     haeKaikki();
 });
@@ -26,7 +27,8 @@ $(document).ready(function() {
     //animoidaan logo tärähtämään
     $("#logo").animate(
         {width: "100px"}, 200
-    ).animate({width: "40px"}, 100
+    ).animate(
+        {width: "40px"}, 100
     ).animate(
         {width: "90px"}, 100
     ).animate(
@@ -36,7 +38,7 @@ $(document).ready(function() {
 
 //FUNKTIOT
 
-//Haku-nappia painettaessa haetaan kuva ja fakta, sekä piilotetaan sivulta yksi elementti (mikäli vielä esillä) ja heilautetaan logoa
+//Haku-nappia painettaessa haetaan kuva ja fakta, sekä piilotetaan sivulta yksi elementti (mikäli vielä esillä) ja heilautetaan logoa ja otsikkoa
 function haeKaikki() {
     haeKuva();
     haeFakta();
@@ -83,7 +85,7 @@ function haeKuva() {
         // jos haku ei onnistu:
         error: function(errorThrown) {
             alert("There was a problem while fetching a cat image. Please try again. Error: " + errorThrown);
-            console.log(errorThrown);
+            //console.log(errorThrown);
         }
     });
 }
@@ -109,7 +111,7 @@ function haeFakta() {
     //jos haku ei onnistu:
     error: function (errorThrown) {
         alert("There was a problem while fetching a cat fact. Please try again. Error: " + errorThrown);
-        console.log(errorThrown);
+        //console.log(errorThrown);
     }
     });
 }
