@@ -9,24 +9,28 @@ $(document).ready(function() {
     haeKuva();
     //piilotetaan otsikko ja feidataan se sisään
     $("h1").hide();
-    $("h1").html("Cat Fact Generator").fadeIn(500);
+    $("h1").html("Cat Fact Generator").show();
+     //animoidaan otsikko tärähtämään
+    var ogFontSize = parseInt($("h1").css("font-size"));
+    //console.log(ogFontSize);
+    $("h1").animate(
+        {fontSize: "-=15"}, 100
+    ).animate(
+        {fontSize: "+=15"}, 200
+    ).animate(
+        {fontSize: "-=15"}, 100
+    ).animate(
+        {fontSize: ogFontSize}
+    );
+
     //animoidaan logo tärähtämään
     $("#logo").animate(
-        {
-            width: "100px",
-        }, 200
+        {width: "100px"}, 200
+    ).animate({width: "40px"}, 100
     ).animate(
-        {
-            width: "40px",
-        }, 100
+        {width: "90px"}, 100
     ).animate(
-        {
-                width: "90px",
-        }, 100
-    ).animate(
-            {
-                width: "70px",
-            }
+            {width: "70px"}
     );
 })
 
@@ -37,22 +41,26 @@ function haeKaikki() {
     haeKuva();
     haeFakta();
     piilota();
+    //Logon täräytys
     $("#logo").animate(
-        {
-            width: "100px",
-        }, 200
+        {width: "100px"}, 100
     ).animate(
-        {
-            width: "40px",
-        }, 100
+        {width: "40px"}, 200
     ).animate(
-        {
-                width: "90px",
-        }, 100
+        {width: "90px"}, 100
     ).animate(
-            {
-                width: "70px",
-            }
+        {width: "70px"}
+    );
+    //Otsikon täräytys
+    var ogFontSize = parseInt($("h1").css("font-size"));
+    $("h1").animate(
+        {fontSize: "-=15"}, 200
+    ).animate(
+        {fontSize: "+=15"}, 100
+    ).animate(
+        {fontSize: "-=15"}, 100
+    ).animate(
+        {fontSize: ogFontSize}
     );
 
 }
@@ -115,7 +123,7 @@ function naytaFakta(fakta) {
     if(fakta == "To unsubscribe from catfacts, reply the following code: tj3G5de$se"
     || fakta == "You gotta be kitten me! are you sure you want to unsubscribe? send YES or NO"
     || fakta == "Invalid Command, CatFacts!") {
-        console.log("Nyt tuli tää: " + fakta)
+        //console.log("Nyt tuli tää: " + fakta)
         haeFakta();
         }
 

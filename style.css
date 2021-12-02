@@ -70,8 +70,12 @@ button {
   }
 
   .image {
-      max-height: 500px;
+      max-height: 400px;
       max-width: 100%;
+  }
+  
+  #otsikkodiv {
+    height: 30px;
   }
 
   #logodiv {
